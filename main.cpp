@@ -27,7 +27,7 @@ jeden = 1
 
 class Karta{
 public:
-    Karta(int f,int k){kolor = k;figura = f;}
+    Karta(int f,int k){figura = f;kolor = k;}
     int pokaz_figure(){return figura;}
     int pokaz_kolor(){return kolor;}
 private:
@@ -39,15 +39,18 @@ class Talia{
 public:
     Talia(){generuj_talie();}
     queue<Karta> karty;
-    int ilosc_kart = 52;
+    int ilosc_kolorow = 4;
+    int rodzaje_kart = 12;
 private:
     void tasuj(){}
     void generuj_talie(){
-    for(int i=0;i<ilosc_kart;i++){
-        Karta *karta = new Karta(i,i);
-        karty.push(*karta);
-        delete karta;
-    }
+        for(int i=0;i<rodzaje_kart;i++){
+            for(int j=0;j<ilosc_kolorow;j++){
+                Karta *karta = new Karta(i,j);
+                karty.push(*karta);
+                delete karta;
+            }
+        }
     }
 };
 
