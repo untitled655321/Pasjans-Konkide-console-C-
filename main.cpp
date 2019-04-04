@@ -126,7 +126,26 @@ public:
                         }
                 }
 
-                void przyjmij_komende(){
+                //zwraca numer pola w ktorym sie znajduje
+                bool wyszukaj_karte(int figura,int kolor,int numer_pola){
+                if(numer_pola==0)({
+
+                }
+                else if((numer_pola>=1)&&(numer_pola<=7)){
+                    pola_1_2_3_4_5_6_7
+                }
+                else if((numer_pola>=8)&&(numer_pola<=11)){
+
+                }
+
+                }
+                void sprawdz_poprawnosc_ruchu(){
+
+                }
+                void przemiesc_karte(int pole_z,int firuga,int kolor,int pole_do){
+                   // wyszukaj_karte(figura,kolor);
+                   pola_1_2_3_4_5_6_7[pole_z]
+
                 }
 
 private:
