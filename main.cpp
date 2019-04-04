@@ -29,9 +29,11 @@ jeden = 1
 class Karta{
 public:
     Karta(int f,int k){figura = f;kolor = k;}
-    int pokaz_figure(){return figura;}
-    int pokaz_kolor(){return kolor;}
+    int pokaz_figure(){if(ukryta==false)return figura;}
+    int pokaz_kolor(){if(ukryta==false)return kolor;}
+    void odslon_karte(){ukryta=false;}
 private:
+    bool ukryta=true;
     int kolor;
     int figura;
 };
@@ -68,6 +70,7 @@ public:
         void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
                 for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                     for(int j=0;j<i;j++){
+                            talia.karty.front().odslon_karte();
                         pola_1_2_3_4_5_6_7[i].push_back(talia.karty.front()) ;
                         talia.karty.pop();
                     }
@@ -89,7 +92,7 @@ rozdaj_karty_na_pole_0();
              void rysuj_pola_1_2_3_4_5_6_7(){
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                             for(int j=0;j<pola_1_2_3_4_5_6_7[i].size();j++){
-                                cout<<pola_1_2_3_4_5_6_7[i][j].pokaz_figure();
+                                cout<<pola_1_2_3_4_5_6_7[i][j].pokaz_figure()<<" "<<pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()<<" | ";
                             }
                             cout<<endl;
                         }
