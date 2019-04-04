@@ -68,7 +68,7 @@ public:
     queue<Karta> pole0;
 private:
     Talia talia;
-    int ilosc_pol = 7;
+    int ilosc_pol_1_2_3_4_5_6_7 = 7;
     int ilosc_stosow = 4;
 
         void rysuj_plansze(){
@@ -82,7 +82,11 @@ private:
     void rozdaj_karty_na_pola(){
 
     }
+    void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
+    for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
 
+    }
+    }
 
 };
 
