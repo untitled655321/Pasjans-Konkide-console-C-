@@ -64,7 +64,7 @@ class Plansza{
 public:
     Plansza(Talia t){talia = t;}
 
-    //rozk³ada karty na polach 1 2 3 4 5 6 7
+    //dunkcje do rozk³adania kart dla nowej gry
         void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
                 for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                     for(int j=0;j<i;j++){
@@ -81,8 +81,11 @@ public:
 
             void rozdaj_karty_na_pola(){
 rozdaj_karty_na_pola_1_2_3_4_5_6_7();
+rozdaj_karty_na_pole_0();
     }
 
+
+    //tutaj zaczynaj¹ sie funkcje rysuj¹ce plansze
              void rysuj_pola_1_2_3_4_5_6_7(){
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                             for(int j=0;j<pola_1_2_3_4_5_6_7[i].size();j++){
@@ -91,15 +94,15 @@ rozdaj_karty_na_pola_1_2_3_4_5_6_7();
                             cout<<endl;
                         }
                     };
-
+                    void rysuj_pola_8_9_10_11(){};
+                  void rysuj_pole0(){};
 
                              void rysuj_plansze(){
                     rysuj_pola_1_2_3_4_5_6_7();
                     rysuj_pola_8_9_10_11();
                     rysuj_pole0();
                 };
-                void rysuj_pola_8_9_10_11(){};
-                  void rysuj_pole0(){};
+
 private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7 = 7;
@@ -128,7 +131,7 @@ int main()
 
     Talia talia;
     Plansza plansza(talia);
-    plansza.rozdaj_karty_na_pola_1_2_3_4_5_6_7();
+    plansza.rozdaj_karty_na_pola();
     plansza.rysuj_pola_1_2_3_4_5_6_7();
      for(int i=0;i<52;i++){
         cout<< talia.karty.front().pokaz_figure()<<endl;
