@@ -74,6 +74,14 @@ public:
                 }
             }
 
+            void rozdaj_karty_na_pole_0(){
+                pole0 = talia.karty;
+            };
+
+
+            void rozdaj_karty_na_pola(){
+rozdaj_karty_na_pola_1_2_3_4_5_6_7();
+    }
 
              void rysuj_pola_1_2_3_4_5_6_7(){
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
@@ -83,6 +91,15 @@ public:
                             cout<<endl;
                         }
                     };
+
+
+                             void rysuj_plansze(){
+                    rysuj_pola_1_2_3_4_5_6_7();
+                    rysuj_pola_8_9_10_11();
+                    rysuj_pole0();
+                };
+                void rysuj_pola_8_9_10_11(){};
+                  void rysuj_pole0(){};
 private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7 = 7;
@@ -91,19 +108,13 @@ private:
     stack<Karta> pola_8_9_10_11 [4];
     queue<Karta> pole0;
 
-        void rysuj_plansze(){
-            rysuj_pola_1_2_3_4_5_6_7();
-            rysuj_pola_8_9_10_11();
-            rysuj_pole0();
-        };
 
 
 
-    void rysuj_pola_8_9_10_11();
-    void rysuj_pole0();
-    void rozdaj_karty_na_pola(){
 
-    }
+
+
+
 
 
 };
