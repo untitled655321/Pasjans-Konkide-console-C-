@@ -126,7 +126,7 @@ public:
                         }
                 }
 
-                //zwraca numer pola w ktorym sie znajduje
+                //zwraca bool czy karta rzeczywiscie znajduje sie na polu z ktorego ma zostac przeniesiona
                 bool wyszukaj_karte(int figura,int kolor,int numer_pola){
                 if(numer_pola==0)({
 
