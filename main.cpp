@@ -91,6 +91,7 @@ rozdaj_karty_na_pole_0();
     //tutaj zaczynaj¹ sie funkcje rysuj¹ce plansze
              void rysuj_pola_1_2_3_4_5_6_7(){
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
+                    cout<<i<<"||";
                             for(int j=0;j<pola_1_2_3_4_5_6_7[i].size();j++){
                                 cout<<pola_1_2_3_4_5_6_7[i][j].pokaz_figure()<<" "<<pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()<<" | ";
                             }
