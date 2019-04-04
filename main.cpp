@@ -55,6 +55,9 @@ int main()
 {
     Karta as_karo(As,karo);
     Talia talia;
+     for(int i=0;i<52;i++){
+        cout<< talia.karty[i].pokaz_figure()<<endl;
+    }
     cout<< as_karo.pokaz_figure()<<endl;
     cout<< as_karo.pokaz_kolor()<<endl;
 
