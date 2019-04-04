@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -37,14 +38,14 @@ private:
 class Talia{
 public:
     Talia(){generuj_talie();}
-    vector<Karta> karty;
+    queue<Karta> karty;
     int ilosc_kart = 52;
 private:
     void tasuj(){}
     void generuj_talie(){
     for(int i=0;i<ilosc_kart;i++){
         Karta *karta = new Karta(i,i);
-        karty.push_back(*karta);
+        karty.push(*karta);
         delete karta;
     }
     }
@@ -56,7 +57,8 @@ int main()
     Karta as_karo(As,karo);
     Talia talia;
      for(int i=0;i<52;i++){
-        cout<< talia.karty[i].pokaz_figure()<<endl;
+        cout<< talia.karty.front().pokaz_figure()<<endl;
+        talia.karty.pop();
     }
     cout<< as_karo.pokaz_figure()<<endl;
     cout<< as_karo.pokaz_kolor()<<endl;
