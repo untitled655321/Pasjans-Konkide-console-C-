@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -41,8 +42,9 @@ public:
     queue<Karta> karty;
     int ilosc_kolorow = 4;
     int rodzaje_kart = 12;
+    int rozmiar_tali = 52;
 private:
-    void tasuj(){}
+
     void generuj_talie(){
         for(int i=0;i<rodzaje_kart;i++){
             for(int j=0;j<ilosc_kolorow;j++){
@@ -52,7 +54,24 @@ private:
             }
         }
     }
+
+    void tasuj(){
+
+    }
 };
+
+class Plansza{
+public:
+    vector< vector<Karta> > pola;
+    vector< stack<Karta> > pola2;
+private:
+    int ilosc_pol = 7;
+    int ilosc_stosow = 4;
+
+};
+
+
+
 
 
 int main()
