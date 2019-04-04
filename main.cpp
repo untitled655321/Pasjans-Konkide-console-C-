@@ -147,7 +147,9 @@ public:
                 void przemiesc_karte(int pole_z,int figura,int kolor,int pole_do){
                    // wyszukaj_karte(figura,kolor);
                    if(true){
-                    pola_1_2_3_4_5_6_7[pole_do].insert(pola_1_2_3_4_5_6_7[pole_do].back(),pola_1_2_3_4_5_6_7[pole_z][2],pola_1_2_3_4_5_6_7[pole_z][3]);
+                    //pola_1_2_3_4_5_6_7[pole_do].insert(pola_1_2_3_4_5_6_7[pole_do].back(),pola_1_2_3_4_5_6_7[pole_z][2],pola_1_2_3_4_5_6_7[pole_z][3]);
+                    pola_1_2_3_4_5_6_7[pole_do].insert( pola_1_2_3_4_5_6_7[pole_do].end(), pola_1_2_3_4_5_6_7[pole_z].begin(), pola_1_2_3_4_5_6_7[pole_z].end() );
+                      pola_1_2_3_4_5_6_7[pole_z].erase(pola_1_2_3_4_5_6_7[pole_z].begin(),pola_1_2_3_4_5_6_7[pole_z].end());
                    }
                    else{
                     cout<<"Podana karta nie istnieje na podanym Polu"<<endl;
@@ -177,7 +179,16 @@ int main()
     Talia talia;
     Plansza plansza(talia);
     plansza.rozdaj_karty_na_pola();
+
     plansza.odswiez_plansze();
+    while(true){
+    int pole_z;
+    int pole_do;
+    cin>>pole_z;
+    cin>>pole_do;
+    plansza.przemiesc_karte(pole_z,0,0,pole_do);
+    plansza.odswiez_plansze();
+    }
      for(int i=0;i<56;i++){
         cout<< talia.karty.front().pokaz_figure()<< " "<< talia.karty.front().pokaz_kolor();
         cout<<endl;
