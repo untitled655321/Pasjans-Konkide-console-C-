@@ -70,14 +70,19 @@ private:
     Talia talia;
     int ilosc_pol = 7;
     int ilosc_stosow = 4;
-    void rysuj_plansze(){
-    rysuj_pola_1_2_3_4_5_6_7();
-    rysuj_pola_8_9_10_11();
-    rysuj_pole0();
-    };
+
+        void rysuj_plansze(){
+            rysuj_pola_1_2_3_4_5_6_7();
+            rysuj_pola_8_9_10_11();
+            rysuj_pole0();
+        };
     void rysuj_pola_1_2_3_4_5_6_7();
     void rysuj_pola_8_9_10_11();
     void rysuj_pole0();
+    void rozdaj_karty_na_pola(){
+
+    }
+
 
 };
 
