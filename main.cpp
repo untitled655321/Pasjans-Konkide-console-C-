@@ -79,8 +79,8 @@ public:
                 //odslon karty na wierzchu
                for(int k=0;k<ilosc_pol_1_2_3_4_5_6_7;k++){
                         int sizee = pola_1_2_3_4_5_6_7[k].size()-1;
-                        cout<<sizee<<" ";
-                        if(sizee>0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
+
+                        if(sizee>=0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
                 }
             }
 
