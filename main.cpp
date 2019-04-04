@@ -41,14 +41,14 @@ public:
     Talia(){generuj_talie();}
     queue<Karta> karty;
     int ilosc_kolorow = 4;
-    int rodzaje_kart = 12;
+    int rodzaje_kart = 14;
     int rozmiar_tali = 52;
 private:
 
     void generuj_talie(){
-        for(int i=0;i<rodzaje_kart;i++){
+        for(int i=1;i<rodzaje_kart+1;i++){
             for(int j=0;j<ilosc_kolorow;j++){
-                Karta *karta = new Karta(i,j);
+                Karta *karta = new Karta(i,15+j);
                 karty.push(*karta);
                 delete karta;
             }
@@ -133,8 +133,9 @@ int main()
     Plansza plansza(talia);
     plansza.rozdaj_karty_na_pola();
     plansza.rysuj_pola_1_2_3_4_5_6_7();
-     for(int i=0;i<52;i++){
-        cout<< talia.karty.front().pokaz_figure()<<endl;
+     for(int i=0;i<56;i++){
+        cout<< talia.karty.front().pokaz_figure()<< " "<< talia.karty.front().pokaz_kolor();
+        cout<<endl;
         talia.karty.pop();
     }
 
