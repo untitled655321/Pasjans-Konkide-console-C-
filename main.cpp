@@ -69,6 +69,7 @@ public:
                 for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                     for(int j=0;j<i;j++){
                         pola_1_2_3_4_5_6_7[i].push_back(talia.karty.front()) ;
+                        talia.karty.pop();
                     }
                 }
             }
@@ -77,8 +78,9 @@ public:
              void rysuj_pola_1_2_3_4_5_6_7(){
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                             for(int j=0;j<pola_1_2_3_4_5_6_7[i].size();j++){
-                                cout<<&pola_1_2_3_4_5_6_7[i].at(j);
+                                cout<<pola_1_2_3_4_5_6_7[i][j].pokaz_figure();
                             }
+                            cout<<endl;
                         }
                     };
 private:
