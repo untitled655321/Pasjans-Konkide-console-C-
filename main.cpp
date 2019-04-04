@@ -63,15 +63,15 @@ private:
 class Plansza{
 public:
     Plansza(Talia t){talia = t;}
-    vector< vector<Karta> > pola1;
-    vector< stack<Karta> > pola2;
+    vector< vector<Karta> > pola_1_2_3_4_5_6_7;
+    vector< stack<Karta> > pola_8_9_10_11;
 private:
     Talia talia;
     int ilosc_pol = 7;
     int ilosc_stosow = 4;
     void rysuj_plansze(){
-    rysuj_pola1();
-    rysuj_pola2();
+    rysuj_pola_1_2_3_4_5_6_7();
+    rysuj_pola_8_9_10_11();
     };
     void rysuj_pola1();
     void rysuj_pola2();
@@ -84,16 +84,14 @@ private:
 
 int main()
 {
-    Karta as_karo(As,karo);
+
     Talia talia;
     Plansza plansza(talia);
      for(int i=0;i<52;i++){
         cout<< talia.karty.front().pokaz_figure()<<endl;
         talia.karty.pop();
     }
-    cout<< as_karo.pokaz_figure()<<endl;
-    cout<< as_karo.pokaz_kolor()<<endl;
 
-    cout << "Hello world!" << endl;
+
     return 0;
 }
