@@ -32,6 +32,7 @@ public:
     int pokaz_figure(){if(ukryta==false)return figura;}
     int pokaz_kolor(){if(ukryta==false)return kolor;}
     void odslon_karte(){ukryta=false;}
+    bool przenies_karte(){if(ukryta==false)return true;}
 private:
     bool ukryta=true;
     int kolor;
@@ -70,12 +71,19 @@ public:
         void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
                 for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                     for(int j=0;j<i;j++){
-                            talia.karty.front().odslon_karte();
+
                         pola_1_2_3_4_5_6_7[i].push_back(talia.karty.front()) ;
                         talia.karty.pop();
                     }
                 }
+                //odslon karty na wierzchu
+               for(int k=0;k<ilosc_pol_1_2_3_4_5_6_7;k++){
+                        int sizee = pola_1_2_3_4_5_6_7[k].size()-1;
+                        cout<<sizee<<" ";
+                        if(sizee>0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
+                }
             }
+
 
             void rozdaj_karty_na_pole_0(){
                 pole0 = talia.karty;
