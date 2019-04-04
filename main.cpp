@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -33,10 +34,27 @@ private:
     int figura;
 };
 
+class Talia{
+public:
+    Talia(){generuj_talie();}
+    vector<Karta> karty;
+    int ilosc_kart = 52;
+private:
+    void tasuj(){}
+    void generuj_talie(){
+    for(int i=0;i<ilosc_kart;i++){
+        Karta *karta = new Karta(i,i);
+        karty.push_back(*karta);
+        delete karta;
+    }
+    }
+};
+
 
 int main()
 {
     Karta as_karo(As,karo);
+    Talia talia;
     cout<< as_karo.pokaz_figure()<<endl;
     cout<< as_karo.pokaz_kolor()<<endl;
 
