@@ -76,12 +76,7 @@ public:
                         talia.karty.pop();
                     }
                 }
-                //odslon karty na wierzchu
-               for(int k=0;k<ilosc_pol_1_2_3_4_5_6_7;k++){
-                        int sizee = pola_1_2_3_4_5_6_7[k].size()-1;
 
-                        if(sizee>=0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
-                }
             }
 
 
@@ -115,6 +110,22 @@ rozdaj_karty_na_pole_0();
                     rysuj_pole0();
                 };
 
+                //odswieza plansze po kazdym wydanym poleceniu przez gracza
+                void odswiez_plansze(){
+                    odslon_na_wierzchu_pol_1_2_3_4_5_6_7();
+                rysuj_plansze();
+                }
+
+                  //odslon karty na wierzchu
+                void odslon_na_wierzchu_pol_1_2_3_4_5_6_7(){
+
+                       for(int k=0;k<ilosc_pol_1_2_3_4_5_6_7;k++){
+                                int sizee = pola_1_2_3_4_5_6_7[k].size()-1;
+
+                                if(sizee>=0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
+                        }
+                }
+
 private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7 = 7;
@@ -144,7 +155,7 @@ int main()
     Talia talia;
     Plansza plansza(talia);
     plansza.rozdaj_karty_na_pola();
-    plansza.rysuj_pola_1_2_3_4_5_6_7();
+    plansza.odswiez_plansze();
      for(int i=0;i<56;i++){
         cout<< talia.karty.front().pokaz_figure()<< " "<< talia.karty.front().pokaz_kolor();
         cout<<endl;
