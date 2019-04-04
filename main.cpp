@@ -63,13 +63,18 @@ private:
 class Plansza{
 public:
     Plansza(Talia t){talia = t;}
-    vector< vector<Karta> > pola;
+    vector< vector<Karta> > pola1;
     vector< stack<Karta> > pola2;
 private:
     Talia talia;
     int ilosc_pol = 7;
     int ilosc_stosow = 4;
-    void rysuj_plansze(){};
+    void rysuj_plansze(){
+    rysuj_pola1();
+    rysuj_pola2();
+    };
+    void rysuj_pola1();
+    void rysuj_pola2();
 
 };
 
