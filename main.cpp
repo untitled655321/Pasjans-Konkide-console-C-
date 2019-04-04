@@ -86,9 +86,9 @@ public:
 
 
             void rozdaj_karty_na_pola(){
-rozdaj_karty_na_pola_1_2_3_4_5_6_7();
-rozdaj_karty_na_pole_0();
-    }
+                rozdaj_karty_na_pola_1_2_3_4_5_6_7();
+                rozdaj_karty_na_pole_0();
+            }
 
 
     //tutaj zaczynaj¹ sie funkcje rysuj¹ce plansze
@@ -113,7 +113,7 @@ rozdaj_karty_na_pole_0();
                 //odswieza plansze po kazdym wydanym poleceniu przez gracza
                 void odswiez_plansze(){
                     odslon_na_wierzchu_pol_1_2_3_4_5_6_7();
-                rysuj_plansze();
+                    rysuj_plansze();
                 }
 
                   //odslon karty na wierzchu
@@ -126,6 +126,9 @@ rozdaj_karty_na_pole_0();
                         }
                 }
 
+                void przyjmij_komende(){
+                }
+
 private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7 = 7;
@@ -133,13 +136,6 @@ private:
     vector<Karta> pola_1_2_3_4_5_6_7 [7];
     stack<Karta> pola_8_9_10_11 [4];
     queue<Karta> pole0;
-
-
-
-
-
-
-
 
 
 
