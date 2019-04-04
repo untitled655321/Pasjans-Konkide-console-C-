@@ -63,30 +63,46 @@ private:
 class Plansza{
 public:
     Plansza(Talia t){talia = t;}
-    vector< vector<Karta> > pola_1_2_3_4_5_6_7;
-    vector< stack<Karta> > pola_8_9_10_11;
-    queue<Karta> pole0;
+
+    //rozk³ada karty na polach 1 2 3 4 5 6 7
+        void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
+                for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
+                    for(int j=0;j<i;j++){
+                        pola_1_2_3_4_5_6_7[i].push_back(talia.karty.front()) ;
+                    }
+                }
+            }
+
+
+             void rysuj_pola_1_2_3_4_5_6_7(){
+            for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
+                            for(int j=0;j<pola_1_2_3_4_5_6_7[i].size();j++){
+                                cout<<&pola_1_2_3_4_5_6_7[i].at(j);
+                            }
+                        }
+                    };
 private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7 = 7;
     int ilosc_stosow = 4;
+    vector<Karta> pola_1_2_3_4_5_6_7 [7];
+    stack<Karta> pola_8_9_10_11 [4];
+    queue<Karta> pole0;
 
         void rysuj_plansze(){
             rysuj_pola_1_2_3_4_5_6_7();
             rysuj_pola_8_9_10_11();
             rysuj_pole0();
         };
-    void rysuj_pola_1_2_3_4_5_6_7();
+
+
+
     void rysuj_pola_8_9_10_11();
     void rysuj_pole0();
     void rozdaj_karty_na_pola(){
 
     }
-    void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
-    for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
 
-    }
-    }
 
 };
 
@@ -99,6 +115,8 @@ int main()
 
     Talia talia;
     Plansza plansza(talia);
+    plansza.rozdaj_karty_na_pola_1_2_3_4_5_6_7();
+    plansza.rysuj_pola_1_2_3_4_5_6_7();
      for(int i=0;i<52;i++){
         cout<< talia.karty.front().pokaz_figure()<<endl;
         talia.karty.pop();
