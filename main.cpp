@@ -121,37 +121,36 @@ public:
 
                        for(int k=0;k<ilosc_pol_1_2_3_4_5_6_7;k++){
                                 int sizee = pola_1_2_3_4_5_6_7[k].size()-1;
-
-                                if(sizee>=0){pola_1_2_3_4_5_6_7[k][sizee].odslon_karte();}
+                                if(sizee>=0){pola_1_2_3_4_5_6_7[k].back().odslon_karte();}
                         }
                 }
 
-                //zwraca bool czy karta rzeczywiscie znajduje sie na polu z ktorego ma zostac przeniesiona
-                bool wyszukaj_karte(int figura,int kolor,int numer_pola){
-                    bool znajduje_sie = false;
-                if(numer_pola==0)({
-                    return znajduje_sie ;
-                }
-                else if((numer_pola>=1)&&(numer_pola<=7)){
-                    pola_1_2_3_4_5_6_7
-                    return znajduje_sie;
-                }
-                else if((numer_pola>=8)&&(numer_pola<=11)){
-                return znajduje_sie ;
-                }
-
-                }
-
-                void sprawdz_poprawnosc_ruchu(){
-
-                }
-                void przemiesc_karte(int pole_z,int firuga,int kolor,int pole_do){
-                   // wyszukaj_karte(figura,kolor);
-                   if(wyszukaj_karte(figura,kolor,pole_z)){
-
-                   }
-
-                }
+//                //zwraca bool czy karta rzeczywiscie znajduje sie na polu z ktorego ma zostac przeniesiona
+//                bool wyszukaj_karte(int figura,int kolor,int numer_pola){
+//                    bool znajduje_sie = false;
+//                if(numer_pola==0)({
+//                    return znajduje_sie ;
+//                }
+//                else if((numer_pola>=1)&&(numer_pola<=7)){
+//                    pola_1_2_3_4_5_6_7
+//                    return znajduje_sie;
+//                }
+//                else if((numer_pola>=8)&&(numer_pola<=11)){
+//                return znajduje_sie ;
+//                }
+//
+//                }
+//
+//                void sprawdz_poprawnosc_ruchu(){
+//
+//                }
+//                void przemiesc_karte(int pole_z,int firuga,int kolor,int pole_do){
+//                   // wyszukaj_karte(figura,kolor);
+//                   if(wyszukaj_karte(figura,kolor,pole_z)){
+//
+//                   }
+//
+//                }
 
 private:
     Talia talia;
