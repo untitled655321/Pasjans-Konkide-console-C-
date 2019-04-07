@@ -190,7 +190,7 @@ public:
     //                cout<<i<<"||";
                             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                                 if(j<pola_1_2_3_4_5_6_7[i].size()){
-                                cout<< setw(5) << pola_1_2_3_4_5_6_7[i][j].pokaz_figure()  << pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()  << " | ";
+                                cout<< setw(5) << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_figure()]  << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()]  << " | ";
                                 }
                                 else
                                 {
@@ -206,7 +206,7 @@ public:
                     char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
                     cout << setw(9) << "0" << "                               " << setw(5) << "8" << setw(5) << "9" << setw(5) << "10" << setw(5) << "11" << endl;
                     cout << "----------------------------------------------------------------" << endl;
-                    cout << setw(9) << pole0.front().pokaz_figure() << pole0.front().pokaz_kolor()  << "                            ";
+                    cout << setw(9) << numery[pole0.front().pokaz_figure()] << numery[pole0.front().pokaz_kolor()]  << "                            ";
                     if(pola_8_9_10_11[0].empty()==false)
                         {cout << setw(7) << numery[pola_8_9_10_11[0].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[0].top().pokaz_kolor() - 1];}
                     else
