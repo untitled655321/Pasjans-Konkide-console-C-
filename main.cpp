@@ -350,7 +350,7 @@ public:
                         else{
                                 pole_z = pole_z-1;
                                 pole_do = pole_do-8;
-                        pola_8_9_10_11[pole_do].push( pola_1_2_3_4_5_6_7[pole_z].front());
+                        pola_8_9_10_11[pole_do].push( pola_1_2_3_4_5_6_7[pole_z][pola_1_2_3_4_5_6_7[pole_z].size()-1]);
                                 pola_1_2_3_4_5_6_7[pole_z].pop_back();
 
                         }
