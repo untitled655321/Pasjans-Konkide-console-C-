@@ -306,6 +306,10 @@ public:
                         }
                         else if((pole_do>=8)&&(pole_do<=11)){
 
+                                pole_do = pole_do-8;
+                        pola_8_9_10_11[pole_do].push( pole0.front());
+                                pole0.pop();
+
                         }
                 }
                 else if((pole_z>=1)&&(pole_z<=7)){
