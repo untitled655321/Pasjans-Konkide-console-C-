@@ -290,8 +290,14 @@ public:
                 if(pole_z==0){
                         if((pole_do>=1)&&(pole_do<=7)){
                                 pole_do = pole_do-1;
+                                  if(pola_1_2_3_4_5_6_7[pole_do].empty()==true){
                             pola_1_2_3_4_5_6_7[pole_do].push_back(pole0.front());
                             pole0.pop();
+                                }
+                            else if(czy_ruch_dozwolony(pole0.front().pokaz_figure(),pole0.front().pokaz_kolor(),pola_1_2_3_4_5_6_7[pole_do].back().pokaz_figure(),pola_1_2_3_4_5_6_7[pole_do].back().pokaz_kolor())){
+                            pola_1_2_3_4_5_6_7[pole_do].push_back(pole0.front());
+                            pole0.pop();
+                                }
                         }
                         else if((pole_do>=8)&&(pole_do<=11)){
 
