@@ -199,7 +199,6 @@ public:
 private:
 
     void generuj_talie(){
-        //cout << "GGGGGGG" << endl;
 
         for(int i=1;i<rodzaje_kart+1;i++){
 
@@ -207,7 +206,6 @@ private:
 
                 Karta *karta = new Karta(i,15+j);
                 karty.push(*karta);
-                //cout << (karty.back()).pokaz_figure() << "  " << (karty.back()).pokaz_kolor() << endl;
                 delete karta;
 
             }
@@ -231,9 +229,7 @@ private:
     for (i=0; i<l; i++)
 
     {
-        cout << i << "        ";
         K[i]=karty.front();
-        cout << (K[i]).pokaz_figure() << "  " << (K[i]).pokaz_kolor() << endl;
         karty.pop();
 
     }
@@ -263,7 +259,6 @@ private:
             {
 
                 karty.push(K[n]);
-                cout << (K[n]).pokaz_figure() << "  " << (K[n]).pokaz_kolor() << endl;
                 p=true;
                 w[n]==true;
 
