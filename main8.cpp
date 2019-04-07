@@ -384,7 +384,7 @@ public:
 
                                 if(j<pola_1_2_3_4_5_6_7[i].size()){
 
-                                cout<<setw(5) << numery[(pola_1_2_3_4_5_6_7[i][j].pokaz_figure()-1)]  << numery[(pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()-1)]  << " | ";
+                                cout<<setw(5) << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_figure()]  << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()]  << " | ";
 
                                 }
 
