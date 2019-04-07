@@ -288,7 +288,14 @@ public:
 
 
                 if(pole_z==0){
+                        if((pole_do>=1)&&(pole_do<=7)){
+                                pole_do = pole_do-1;
+                            pola_1_2_3_4_5_6_7[pole_do].push_back(pole0.front());
+                            pole0.pop();
+                        }
+                        else if((pole_do>=8)&&(pole_do<=11)){
 
+                        }
                 }
                 else if((pole_z>=1)&&(pole_z<=7)){
                         //-1 poniewaz tablica vectorow rozpoczyna sie od "0"
