@@ -310,6 +310,8 @@ public:
                 }
                 else if((pole_z>=1)&&(pole_z<=7)){
                         //-1 poniewaz tablica vectorow rozpoczyna sie od "0"
+
+                        if((pole_do>=1)&&(pole_do<=7)){
                         pole_z = pole_z-1;
                         pole_do = pole_do-1;
                        int indeks = podaj_indeks_vectora(pole_z,figura_do_przeniesienia,kolor_do_przeniesiena);
@@ -340,6 +342,14 @@ public:
                         cout<<endl;
                     }
                    }
+                        }
+                        else{
+                                pole_z = pole_z-1;
+                                pole_do = pole_do-8;
+                        pola_8_9_10_11[pole_do].push( pola_1_2_3_4_5_6_7[pole_z].front());
+                                pola_1_2_3_4_5_6_7[pole_z].pop_back();
+
+                        }
                 }
 
                 else if((pole_z>=8)&&(pole_z<=11)){
