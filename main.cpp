@@ -60,7 +60,7 @@ public:
         ukryta=true;
     }
 
-    Karta(int f,int k){figura = f;kolor = k;}
+    Karta(int f,int k){figura = f;kolor = k;ukryta=true;}
 
     int pokaz_figure(){if(ukryta==false)return figura;}
 
@@ -241,6 +241,7 @@ public:
 
                 void odswiez_plansze(){
                     odslon_na_wierzchu_pol_1_2_3_4_5_6_7();
+                    odslon_na_wierzchu_pola0();
                     rysuj_plansze();
                 }
 
@@ -255,6 +256,10 @@ public:
                         }
                 }
 
+                 void odslon_na_wierzchu_pola0(){
+                           pole0.front().odslon_karte();
+
+                }
 
 
                 //zwraca bool czy karta rzeczywiscie znajduje sie na polu z ktorego ma zostac przeniesiona
@@ -369,6 +374,7 @@ int main()
 
     plansza.odswiez_plansze();
 
+
     while(true){
 
     int pole_z;
@@ -376,8 +382,6 @@ int main()
     int figura_do_przeniesienia;
     int kolor_do_przeniesienia;
 
-    int figura_na_ktora_polozyc;
-    int kolor_na_ktory_polozyc;
 
     int pole_do;
 
@@ -396,7 +400,8 @@ int main()
 
     }
 
-     for(int i=0;i<56;i++){
+
+ for(int i=0;i<56;i++){
 
         cout<< talia.karty.front().pokaz_figure()<< " "<< talia.karty.front().pokaz_kolor();
 
@@ -405,7 +410,6 @@ int main()
         talia.karty.pop();
 
     }
-
 
     return 0;
 
