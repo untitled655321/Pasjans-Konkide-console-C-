@@ -66,6 +66,8 @@ public:
 
     int pokaz_kolor(){if(ukryta==false)return kolor;}
 
+    bool czy_figura_ukryta(){return ukryta;};
+
     void odslon_karte(){ukryta=false;}
 
     bool przenies_karte(){if(ukryta==false)return true;}
@@ -188,7 +190,7 @@ public:
     //                cout<<i<<"||";
                             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                                 if(j<pola_1_2_3_4_5_6_7[i].size()){
-                                cout<< setw(5) << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_figure() - 1] << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_kolor() - 1] << " | ";
+                                cout<< setw(5) << pola_1_2_3_4_5_6_7[i][j].pokaz_figure()  << pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()  << " | ";
                                 }
                                 else
                                 {
@@ -204,7 +206,7 @@ public:
                     char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
                     cout << setw(9) << "0" << "                               " << setw(5) << "8" << setw(5) << "9" << setw(5) << "10" << setw(5) << "11" << endl;
                     cout << "----------------------------------------------------------------" << endl;
-                    cout << setw(9) << numery[pole0.front().pokaz_figure() - 1] << numery[pole0.front().pokaz_kolor() - 1] << "                            ";
+                    cout << setw(9) << pole0.front().pokaz_figure() << pole0.front().pokaz_kolor()  << "                            ";
                     if(pola_8_9_10_11[0].empty()==false)
                         {cout << setw(7) << numery[pola_8_9_10_11[0].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[0].top().pokaz_kolor() - 1];}
                     else
@@ -257,30 +259,22 @@ public:
 
                 //zwraca bool czy karta rzeczywiscie znajduje sie na polu z ktorego ma zostac przeniesiona
 
-                bool wyszukaj_karte(int figura,int kolor,int numer_pola){
-                    bool znajduje_sie = false;
 
-                if(numer_pola==0){
-                    return znajduje_sie ;
+
+                int podaj_indeks_vectora(int numer_pola,int figura,int kolor){
+                    int indeks = -1;
+                    for(int i=0;i<pola_1_2_3_4_5_6_7[numer_pola].size();i++){
+
+                            if((pola_1_2_3_4_5_6_7[numer_pola][i].pokaz_figure()==figura)&&(pola_1_2_3_4_5_6_7[numer_pola][i].pokaz_kolor()==kolor)&&(pola_1_2_3_4_5_6_7[numer_pola][i].czy_figura_ukryta()==false)){
+                                indeks = i;
+                            }
+                    }
+                    return indeks;
                 }
 
-                else if((numer_pola>=1)&&(numer_pola<=7)){
-                    return znajduje_sie;
-                }
-
-                else if((numer_pola>=8)&&(numer_pola<=11)){
-                return znajduje_sie ;
-                }
-                }
-
-                void sprawdz_poprawnosc_ruchu(){
-
-
-
-                }
 
                 bool czy_ruch_dozwolony(int figura_do_przeniesienia,int kolor_do_przeniesiena,int figura_na_ktora_przeniesc,int kolor_na_ktory_przeniesc){
-                    if((figura_do_przeniesienia<figura_na_ktora_przeniesc)&&(kolor_do_przeniesiena%kolor_na_ktory_przeniesc==0)){
+                    if((figura_do_przeniesienia+1==figura_na_ktora_przeniesc)&&(kolor_do_przeniesiena%2!=kolor_na_ktory_przeniesc%2)){
                         return true;
                     }
                     else{
@@ -290,24 +284,54 @@ public:
                 }
 
 
-                void przemiesc_karte(int pole_z,int figura_do_przeniesienia,int kolor_do_przeniesiena,int figura_na_ktora_przeniesc,int kolor_na_ktory_przeniesc,int pole_do){
+                void przemiesc_karte(int pole_z,int figura_do_przeniesienia,int kolor_do_przeniesiena,int pole_do){
 
 
+                if(pole_z==0){
 
-                   if(true){
+                }
+                else if((pole_z>=1)&&(pole_z<=7)){
+                        //-1 poniewaz tablica vectorow rozpoczyna sie od "0"
+                        pole_z = pole_z-1;
+                        pole_do = pole_do-1;
+                       int indeks = podaj_indeks_vectora(pole_z,figura_do_przeniesienia,kolor_do_przeniesiena);
 
-                    //pola_1_2_3_4_5_6_7[pole_do].insert(pola_1_2_3_4_5_6_7[pole_do].back(),pola_1_2_3_4_5_6_7[pole_z][2],pola_1_2_3_4_5_6_7[pole_z][3]);
+                if(pola_1_2_3_4_5_6_7[pole_do].empty()==true){
 
-                    pola_1_2_3_4_5_6_7[pole_do].insert( pola_1_2_3_4_5_6_7[pole_do].end(), pola_1_2_3_4_5_6_7[pole_z].begin(), pola_1_2_3_4_5_6_7[pole_z].end() );
+                      pola_1_2_3_4_5_6_7[pole_do].insert( pola_1_2_3_4_5_6_7[pole_do].end(), pola_1_2_3_4_5_6_7[pole_z].begin()+indeks, pola_1_2_3_4_5_6_7[pole_z].end() );
 
-                      pola_1_2_3_4_5_6_7[pole_z].erase(pola_1_2_3_4_5_6_7[pole_z].begin(),pola_1_2_3_4_5_6_7[pole_z].end());
+                      pola_1_2_3_4_5_6_7[pole_z].erase(pola_1_2_3_4_5_6_7[pole_z].begin()+indeks,pola_1_2_3_4_5_6_7[pole_z].end());
+
+                }
+                else if((czy_ruch_dozwolony(figura_do_przeniesienia,kolor_do_przeniesiena,pola_1_2_3_4_5_6_7[pole_do].back().pokaz_figure(),pola_1_2_3_4_5_6_7[pole_do].back().pokaz_kolor()))&&(indeks!=-1)){
+
+                    pola_1_2_3_4_5_6_7[pole_do].insert( pola_1_2_3_4_5_6_7[pole_do].end(), pola_1_2_3_4_5_6_7[pole_z].begin()+indeks, pola_1_2_3_4_5_6_7[pole_z].end() );
+
+                      pola_1_2_3_4_5_6_7[pole_z].erase(pola_1_2_3_4_5_6_7[pole_z].begin()+indeks,pola_1_2_3_4_5_6_7[pole_z].end());
 
                    }
 
                    else{
-                    cout<<"Podana karta nie istnieje na podanym Polu"<<endl;
+                    cout<<"Blad ruchu"<<endl;
+                    if(czy_ruch_dozwolony(figura_do_przeniesienia,kolor_do_przeniesiena,pola_1_2_3_4_5_6_7[pole_do].back().pokaz_figure(),pola_1_2_3_4_5_6_7[pole_do].back().pokaz_kolor())==false){
+                    cout<<"Nie mozna przeniesc karty o wyzszej wartosci na karte o wartosci nizszej, lub o nieodpowiednich kolorach";
+                    cout<<endl;
+                    }
+                    if(indeks==-1){
+                        cout<<"Karta ktora chcesz przeniesc nie istnieje na podanym polu nie istnieje";
+                        cout<<endl;
+                    }
                    }
                 }
+
+                else if((pole_z>=8)&&(pole_z<=11)){
+
+                }
+                }
+
+
+
+
 
 
 
@@ -350,14 +374,10 @@ int main()
     cin>>figura_do_przeniesienia;
     cout<<"Podaj kolor ktory przeniesc: ";
     cin>>kolor_do_przeniesienia;
-    cout<<"Podaj figure na ktora przeniesc: ";
-    cin>>figura_na_ktora_polozyc;
-    cout<<"Podaj kolor na ktora przniesc: ";
-    cin>>kolor_na_ktory_polozyc;
     cout<<"Podaj pole na ktore przeniesc: ";
     cin>>pole_do;
 
-    plansza.przemiesc_karte(pole_z,0,0,0,0,pole_do);
+    plansza.przemiesc_karte(pole_z,figura_do_przeniesienia,kolor_do_przeniesienia,pole_do);
 
     plansza.odswiez_plansze();
 
