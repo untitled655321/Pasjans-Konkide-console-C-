@@ -1,7 +1,10 @@
 # depslib dependency file v1.0
-1554404344 source:e:\c++ projects\pasjans_klonkide\main.cpp
+1554647838 source:e:\c++ projects\pasjans_klonkide\main.cpp
 	<iostream>
+	<iomanip>
 	<vector>
 	<queue>
 	<stack>
+	<ctime>
+	<cstdlib>
 
