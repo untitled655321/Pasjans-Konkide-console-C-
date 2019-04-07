@@ -289,6 +289,8 @@ public:
                 }
 
 
+
+
                 void przemiesc_karte(int pole_z,int figura_do_przeniesienia,int kolor_do_przeniesiena,int pole_do){
 
 
@@ -357,6 +359,11 @@ public:
                 }
 
                 else if((pole_z>=8)&&(pole_z<=11)){
+                        pole_z = pole_z-8;
+                        pole_do = pole_do-1;
+
+                        pola_1_2_3_4_5_6_7[pole_do].push_back(pola_8_9_10_11[pole_z].top());
+                        pola_8_9_10_11[pole_z].pop();
 
                 }
                 }
