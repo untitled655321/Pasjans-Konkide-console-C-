@@ -62,9 +62,9 @@ public:
 
     Karta(int f,int k){figura = f;kolor = k;ukryta=true;}
 
-    int pokaz_figure(){if(ukryta==false)return figura;}
+    int pokaz_figure(){if(ukryta==false)return figura; else return 0;}
 
-    int pokaz_kolor(){if(ukryta==false)return kolor;}
+    int pokaz_kolor(){if(ukryta==false)return kolor; else return 0;}
 
     bool czy_figura_ukryta(){return ukryta;};
 
