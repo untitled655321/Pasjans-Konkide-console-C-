@@ -62,9 +62,9 @@ public:
 
     Karta(int f,int k){figura = f;kolor = k;ukryta=true;}
 
-    int pokaz_figure(){if(ukryta==false)return figura; else return 0;}
+    int pokaz_figure(){if(ukryta==false)return figura; else return 1;}
 
-    int pokaz_kolor(){if(ukryta==false)return kolor; else return 0;}
+    int pokaz_kolor(){if(ukryta==false)return kolor; else return 1;}
 
     bool czy_figura_ukryta(){return ukryta;};
 
@@ -148,7 +148,7 @@ class Plansza{
 
 public:
 
-    Plansza(Talia t): ilosc_pol_1_2_3_4_5_6_7(7), ilosc_stosow(4) {talia = t;}
+    Plansza(Talia t): ilosc_pol_1_2_3_4_5_6_7(7), ilosc_stosow(4) {talia = t; k=1;}
     //dunkcje do rozk�adania kart dla nowej gry
         void rozdaj_karty_na_pola_1_2_3_4_5_6_7(){
 
@@ -177,7 +177,7 @@ public:
 
              void rysuj_pola_1_2_3_4_5_6_7(){
                  int max_size=0;
-                 char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
+                 char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++)
                  {
                      if(pola_1_2_3_4_5_6_7[i].size()>max_size)
@@ -190,7 +190,7 @@ public:
     //                cout<<i<<"||";
                             for(int i=0;i<ilosc_pol_1_2_3_4_5_6_7;i++){
                                 if(j<pola_1_2_3_4_5_6_7[i].size()){
-                                cout<< setw(5) << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_figure()]  << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()]  << " | ";
+                                cout<< setw(5) << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_figure()-k]  << numery[pola_1_2_3_4_5_6_7[i][j].pokaz_kolor()-k]  << " | ";
                                 }
                                 else
                                 {
@@ -203,24 +203,24 @@ public:
                     };
 
                     void rysuj_pola_8_9_10_11(){
-                    char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
+                    char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
                     cout << setw(9) << "0" << "                               " << setw(5) << "8" << setw(5) << "9" << setw(5) << "10" << setw(5) << "11" << endl;
                     cout << "----------------------------------------------------------------" << endl;
-                    cout << setw(9) << numery[pole0.front().pokaz_figure()] << numery[pole0.front().pokaz_kolor()]  << "                            ";
+                    cout << setw(9) << numery[pole0.front().pokaz_figure()-k] << numery[pole0.front().pokaz_kolor()-k]  << "                            ";
                     if(pola_8_9_10_11[0].empty()==false)
-                        {cout << setw(7) << numery[pola_8_9_10_11[0].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[0].top().pokaz_kolor() - 1];}
+                        {cout << setw(7) << numery[pola_8_9_10_11[0].top().pokaz_figure()-k] << numery[pola_8_9_10_11[0].top().pokaz_kolor()-k];}
                     else
                         {cout << "       ";}
                     if(pola_8_9_10_11[1].empty()==false)
-                        {cout << setw(7) << numery[pola_8_9_10_11[1].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[1].top().pokaz_kolor() - 1];}
+                        {cout << setw(7) << numery[pola_8_9_10_11[1].top().pokaz_figure()-k] << numery[pola_8_9_10_11[1].top().pokaz_kolor()-k];}
                     else
                         {cout << "       ";}
                     if(pola_8_9_10_11[2].empty()==false)
-                        {cout << setw(7) << numery[pola_8_9_10_11[2].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[2].top().pokaz_kolor() - 1];}
+                        {cout << setw(7) << numery[pola_8_9_10_11[2].top().pokaz_figure()-k] << numery[pola_8_9_10_11[2].top().pokaz_kolor()-k];}
                     else
                         {cout << "       ";}
                     if(pola_8_9_10_11[3].empty()==false)
-                        {cout << setw(7) << numery[pola_8_9_10_11[3].top().pokaz_figure() - 1] << numery[pola_8_9_10_11[3].top().pokaz_kolor() - 1];}
+                        {cout << setw(7) << numery[pola_8_9_10_11[3].top().pokaz_figure()-k] << numery[pola_8_9_10_11[3].top().pokaz_kolor()-k];}
                     else
                         {cout << "       ";}
                     cout << endl;
@@ -288,6 +288,39 @@ public:
 
                 }
 
+    bool czy_ruch_na_stos_dozwolony(int figura_do_przeniesienia,int kolor_do_przeniesiena,int stos_na_ktory_przeniesc){
+                if(pola_8_9_10_11[stos_na_ktory_przeniesc].empty()){
+                if(figura_do_przeniesienia==1){
+                return true;
+                }
+                else{
+                return false;
+                }
+                }
+            else{
+             if((figura_do_przeniesienia-1==pola_8_9_10_11[stos_na_ktory_przeniesc].top().pokaz_figure())&&(kolor_do_przeniesiena==pola_8_9_10_11[stos_na_ktory_przeniesc].top().pokaz_kolor())){
+                                return true;
+                            }
+                            else{
+                                return false;
+                            }
+                            }
+
+
+                }
+
+                void zmien_karte_na_polu0(){
+                if(pole0.empty()){
+                pole0 = pole0_copy;
+                pole0_copy = queue<Karta>();
+                }
+                else{
+                pole0_copy.push(pole0.front());
+                pole0.pop();
+                }
+
+                }
+
 
 
 
@@ -309,8 +342,12 @@ public:
                         else if((pole_do>=8)&&(pole_do<=11)){
 
                                 pole_do = pole_do-8;
+
+                                 if(czy_ruch_na_stos_dozwolony(figura_do_przeniesienia,kolor_do_przeniesiena,pole_do)){
                         pola_8_9_10_11[pole_do].push( pole0.front());
                                 pole0.pop();
+                                }
+
 
                         }
                 }
@@ -352,8 +389,10 @@ public:
                         else{
                                 pole_z = pole_z-1;
                                 pole_do = pole_do-8;
+                                if(czy_ruch_na_stos_dozwolony(figura_do_przeniesienia,kolor_do_przeniesiena,pole_do)){
                         pola_8_9_10_11[pole_do].push( pola_1_2_3_4_5_6_7[pole_z][pola_1_2_3_4_5_6_7[pole_z].size()-1]);
                                 pola_1_2_3_4_5_6_7[pole_z].pop_back();
+                                }
 
                         }
                 }
@@ -379,6 +418,8 @@ private:
     Talia talia;
     int ilosc_pol_1_2_3_4_5_6_7;
     int ilosc_stosow;
+    int k;
+    queue<Karta> pole0_copy;
     vector<Karta> pola_1_2_3_4_5_6_7 [7];
     stack<Karta> pola_8_9_10_11 [4];
     queue<Karta> pole0;
@@ -401,23 +442,66 @@ int main()
     int pole_z;
 
     int figura_do_przeniesienia;
+    char figura;
+
     int kolor_do_przeniesienia;
-
-
+    char ksztalt;
+    int i;
     int pole_do;
 
+    char numery[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A', 'c', 's', 'd', 'h'};
+int zmienna;
+cin>>zmienna;
+switch( zmienna )
+{
+case 1:
+    plansza.zmien_karte_na_polu0();
+    plansza.odswiez_plansze();
+    break;
+
+
+default:
+
     cout<<"Podaj pole z ktorego przeniesc: ";
+
     cin>>pole_z;
+
     cout<<"Podaj figure ktora przeniesc: ";
-    cin>>figura_do_przeniesienia;
+
+        cin>>figura;
+    for(i=0; i<14; i++){
+        if(numery[i]==figura){
+            figura_do_przeniesienia=i;
+        }
+    }
+
+
     cout<<"Podaj kolor ktory przeniesc: ";
-    cin>>kolor_do_przeniesienia;
+
+    cin>>ksztalt;
+    for(i=14; i<17; i++){
+        if(numery[i]==ksztalt){
+            kolor_do_przeniesienia=i;
+        }
+    }
+
     cout<<"Podaj pole na ktore przeniesc: ";
+
     cin>>pole_do;
+
+
 
     plansza.przemiesc_karte(pole_z,figura_do_przeniesienia,kolor_do_przeniesienia,pole_do);
 
     plansza.odswiez_plansze();
+    break;
+}
+
+
+
+
+
+
 
     }
 
